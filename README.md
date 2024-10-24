@@ -1,0 +1,2 @@
+# emoji-lsp
+lsp
