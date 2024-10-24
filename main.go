@@ -1,6 +1,7 @@
 package main
 
 import (
+	"emoji-lsp/handlers"
 	"github.com/tliron/commonlog"
 	"github.com/tliron/glsp"
 	protocol "github.com/tliron/glsp/protocol_3_16"
@@ -18,8 +19,9 @@ func main() {
 	commonlog.Configure(2, nil)
 
 	handler = protocol.Handler{
-		Initialize: initialize,
-		Shutdown:   shutdown,
+		Initialize:             initialize,
+		Shutdown:               shutdown,
+		TextDocumentCompletion: handlers.TextDocumentCompletion,
 	}
 
 	server := server.NewServer(&handler, lsName, true)
